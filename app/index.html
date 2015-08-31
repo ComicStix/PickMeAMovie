@@ -20,36 +20,19 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <a class="navbar-brand" href="#/">pickMeAmovie</a>
-          </div>
-
-          <div class="collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
+   <!-- Top toolbar -->
+    <md-content>
+      <md-toolbar layout="row" layout-align="space-between center" >
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Popcorn">
+          <md-icon md-svg-icon="images/movie.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span class="md-title">Pick Me A Movie!</span>
+        </h2>
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+      </md-toolbar>
+    </md-content>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
