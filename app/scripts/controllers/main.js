@@ -8,10 +8,30 @@
  * Controller of the pickMeAmovieApp
  */
 angular.module('pickMeAmovieApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl',['$scope','movieFactory', function ($scope,movieFactory) {
+
+
+  	getGenres();
+  	function getGenres() {
+        movieFactory.getGenres()
+            .success(function (genres) {
+                $scope.genres = genres['genres'];
+            
+                angular.forEach($scope.genres, function(value, key) {
+                	angular.forEach(value, function(value, key) {
+  				console.log(key + ': ' + value);
+  				
+			  });
+  				
+			  });
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
+
+    
+
+ 
+    
+  }]);
