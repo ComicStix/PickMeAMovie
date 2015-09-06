@@ -18,6 +18,8 @@ angular
     'ngTouch',
     'ngMaterial'
   ])
+  .constant('API_KEY', '10646c463753148b48abcbb790b8119c')
+  .constant('BASE_URL', 'http://api.themoviedb.org/3')
   .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
       .when('/', {
