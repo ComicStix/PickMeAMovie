@@ -8,30 +8,17 @@
  * Controller of the pickMeAmovieApp
  */
 angular.module('pickMeAmovieApp')
-  .controller('MainCtrl',['$scope','movieFactory', function ($scope,movieFactory) {
+  .controller('MainCtrl',function ($scope,movieFactory) {
 
-
+  	$scope.genreList = [];
   	getGenres();
-  	function getGenres() {
-        movieFactory.getGenres()
-            .success(function (genres) {
-                $scope.genres = genres['genres'];
-            
-                angular.forEach($scope.genres, function(value, key) {
-                	angular.forEach(value, function(value, key) {
-  				console.log(key + ': ' + value);
-  				
-			  });
-  				
-			  });
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+
+	function getGenres(){
+		movieFactory.getGenres().then(function(response){
+			$scope.genres = response['genres'];
+			angular.forEach($scope.genres, function(value) {
+	            $scope.genreList.push(value);
             });
-    }
-
-    
-
- 
-    
-  }]);
+		});
+	};
+  });

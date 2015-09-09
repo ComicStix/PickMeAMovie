@@ -16,17 +16,16 @@ angular.module('pickMeAmovieApp')
     function makeRequest(url){
       var requestUrl = baseUrl + '/' + url + '?api_key=' + apiKey;
       return $http({
-            'url': requestUrl,
-            'method': 'GET',
-            'headers': {
-                'Content-Type': 'application/json'
-            },
-            'cache': true
-        }).success(function(response){
-            return response.data;
-        }).error(function(error){
-          console.log("ERROR");
-          return error;
+        'url': requestUrl,
+        'method': 'GET',
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        'cache': true
+    }).then(function(response){
+        return response.data;
+    }).catch(function(response) {
+      console.error('Genre retrieval error', response.status, response.data);
     });
     }
 
