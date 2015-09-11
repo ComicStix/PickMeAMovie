@@ -8,7 +8,7 @@
  * Controller of the pickMeAmovieApp
  */
 angular.module('pickMeAmovieApp')
-  .controller('MainCtrl',function ($scope,movieFactory) {
+  .controller('MainCtrl',function ($scope,movieFactory,sharedProperties) {
 
   	$scope.genreList = [];
   	getGenres();
@@ -21,4 +21,9 @@ angular.module('pickMeAmovieApp')
             });
 		});
 	};
+	
+	$scope.setGenreId = function (genreId){
+		sharedProperties.setGenreId(genreId);
+	};
+
   });

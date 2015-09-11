@@ -1,6 +1,14 @@
-<md-input-container>
-        <h1>Genre</h1>
-        <md-select ng-model="blah">
-          <md-option ng-repeat="blah in genreList" value="{{blah.name}}">{{blah.name}}</md-option>
+<div layout="row" layout-align="center">
+  <div flex offset="75">
+  <div>
+    <md-input-container>
+       <md-select ng-model="selectedGenre" ng-change="setGenreId(selectedGenre)" placeholder="Genre">
+          <md-option ng-repeat="genre in genreList" value="{{genre.id}}">{{genre.name}}</md-option>
         </md-select>
-</md-input-container>
+      </md-input-container>
+  </div>
+</div>
+
+
+      
+ 

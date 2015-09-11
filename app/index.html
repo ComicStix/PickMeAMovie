@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="pickMeAmovieApp">
+  <body ng-app="pickMeAmovieApp" ng-cloak>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -37,7 +37,6 @@
     <div class="container">
     <div ng-view=""></div>
     </div>
-</div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -70,6 +69,8 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/moviefactory.js"></script>
+        <script src="scripts/controllers/displaymovies.js"></script>
+        <script src="scripts/services/sharedproperties.js"></script>
         <!-- endbuild -->
 </body>
 </html>
