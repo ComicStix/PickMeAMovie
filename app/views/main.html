@@ -1,30 +1,37 @@
 <div layout="column" layout-align="center">
+  
   <div>
     <md-input-container>
     <md-label>Set Genre</md-label>
-       <md-select ng-model="selectedGenre" ng-change="setGenreId(selectedGenre)" placeholder="Genre">
+       <md-select ng-model="formData.selectedGenre" ng-change="setGenreId(formData.selectedGenre)" placeholder="Genre">
           <md-option ng-repeat="genre in genreList" value="{{genre.id}}">{{genre.name}}</md-option>
         </md-select>
       </md-input-container>
   </div>
+  
   <div>
     <md-input-container>
           <md-label>Set Min Rating</md-label>
-          <p style="color:red" ng-hide="minRating <= maxRating"> Min rating cannot be larger than max rating</p>
-           <md-select ng-model="minRating" ng-change="setMinRating(minRating)">
-          <md-option ng-repeat="num in [1,2,3,4,5]" value="{{num}}">{{num}}</md-option>
+          <p style="color:red" ng-show="parseInt(formData.minRating) > parseInt(formData.maxRating)"> Min rating cannot be larger than max rating</p>
+           <md-select ng-model="formData.minRating" ng-change="setMinRating(formData.minRating)">
+          <md-option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</md-option>
         </md-select>
       </md-input-container>
   </div>
+  
   <div>
     <md-input-container>
       <md-label>Set Max Rating</md-label>
-       <md-select ng-model="maxRating" ng-change="setMaxRating(maxRating)">
-          <md-option ng-repeat="num in [1,2,3,4,5]" value="{{num}}">{{num}}</md-option>
+       <md-select ng-model="formData.maxRating" ng-change="setMaxRating(formData.maxRating)">
+          <md-option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</md-option>
         </md-select>
       </md-input-container>
   </div>
-  <div><md-button class="md-raised md-primary" ng-disabled="minRating >= maxRating">Submit</md-button></div>
+  
+  <div>
+    <md-button class="md-raised md-primary" ng-disabled="parseInt(formData.minRating) > parseInt(formData.maxRating)">Submit</md-button>
+  </div>
+
 </div>
 
 

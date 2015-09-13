@@ -40,6 +40,10 @@ angular.module('pickMeAmovieApp')
       return makeRequest('discover/movie',{'with_genres': genre});
     };
 
+    movieFactory.getTotalPages = function(genre, minRating, maxRating){
+      return makeRequest('discover/movie',{'with_genres': genre, 'vote_average.lte': maxRating, 'vote_average.gte': minRating, 'sort_by': 'popularity.desc', 'page' : 1000});
+    };
+
     return movieFactory;
     
   }]);

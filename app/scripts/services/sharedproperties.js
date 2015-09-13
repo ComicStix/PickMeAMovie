@@ -11,8 +11,8 @@ angular.module('pickMeAmovieApp')
   .service('sharedProperties', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var _genreId = null;
-    var _minRating = null;
-    var _maxRating = null;
+    var _minRating = 1;
+    var _maxRating = 10;
 
     this.getGenreId = function () {
         return _genreId;

@@ -12,10 +12,11 @@ angular.module('pickMeAmovieApp')
 
   	$scope.genreList = [];
   	getGenres();
-  	$scope.minRating = 1;
-  	$scope.maxRating = 5;
+  	$scope.formData = {};
+  	$scope.formData.minRating = sharedProperties.getMinRating();
+  	$scope.formData.maxRating = sharedProperties.getMaxRating();
 
-	function getGenres(){
+  	function getGenres(){
 		movieFactory.getGenres().then(function(response){
 			$scope.genres = response['genres'];
 			angular.forEach($scope.genres, function(value) {
@@ -29,29 +30,25 @@ angular.module('pickMeAmovieApp')
 		console.log(sharedProperties.getGenreId());
 	};
 
-	$scope.getGenreId = function (){
-		sharedProperties.getGenreId();
-	};
-
 	$scope.setMaxRating = function (rating){
 		sharedProperties.setMaxRating(rating);
-		$scope.maxRating = sharedProperties.getMaxRating();
-		console.log(sharedProperties.getMaxRating());
-	};
-
-	$scope.getMaxRating = function (){
-		sharedProperties.getMaxRating();
+		//$scope.maxRating = sharedProperties.getMaxRating();
+		console.log("max: " + $scope.formData.maxRating);
+		console.log("min: " + $scope.formData.minRating);
 	};
 
 	$scope.setMinRating = function (rating){
 		sharedProperties.setMinRating(rating);
-		$scope.minRating = sharedProperties.getMinRating();
-		console.log(sharedProperties.getMinRating());
+		//$scope.minRating = sharedProperties.getMinRating();
+		console.log("min: " + $scope.formData.minRating);
+		console.log("max: " + $scope.formData.maxRating);
 	};
 
-	$scope.getMinRating = function (){
-		sharedProperties.getMixRating();
+	$scope.parseInt = function(i){
+		return parseInt(i);
 	};
+
+	
 
 	
 
