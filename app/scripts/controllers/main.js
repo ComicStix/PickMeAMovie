@@ -8,7 +8,7 @@
  * Controller of the pickMeAmovieApp
  */
 angular.module('pickMeAmovieApp')
-  .controller('MainCtrl',function ($scope,movieFactory,sharedProperties) {
+  .controller('MainCtrl',function ($scope,movieFactory,sharedProperties,$location) {
 
   	$scope.genreList = [];
   	getGenres();
@@ -46,6 +46,10 @@ angular.module('pickMeAmovieApp')
 
 	$scope.parseInt = function(i){
 		return parseInt(i);
+	};
+
+	$scope.changeView = function(view){
+		$location.path(view);
 	};
 
 	
