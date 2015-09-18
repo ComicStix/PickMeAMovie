@@ -27,21 +27,14 @@ angular.module('pickMeAmovieApp')
 	
 	$scope.setGenreId = function (genreId){
 		sharedProperties.setGenreId(genreId);
-		console.log(sharedProperties.getGenreId());
 	};
 
 	$scope.setMaxRating = function (rating){
 		sharedProperties.setMaxRating(rating);
-		//$scope.maxRating = sharedProperties.getMaxRating();
-		console.log("max: " + $scope.formData.maxRating);
-		console.log("min: " + $scope.formData.minRating);
 	};
 
 	$scope.setMinRating = function (rating){
 		sharedProperties.setMinRating(rating);
-		//$scope.minRating = sharedProperties.getMinRating();
-		console.log("min: " + $scope.formData.minRating);
-		console.log("max: " + $scope.formData.maxRating);
 	};
 
 	$scope.parseInt = function(i){
@@ -51,9 +44,4 @@ angular.module('pickMeAmovieApp')
 	$scope.changeView = function(view){
 		$location.path(view);
 	};
-
-	
-
-	
-
-  });
+});

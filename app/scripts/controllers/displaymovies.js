@@ -14,11 +14,15 @@ angular.module('pickMeAmovieApp')
   	var maxRating = sharedProperties.getMaxRating();
   	getTotalPages();
 
-    function getTotalPages() {
+  	function getTotalPages() {
 		movieFactory.getTotalPages(genreId,minRating,maxRating).then(function(response){
 			$scope.pages = response['total_pages'];
-	});
+			getRandomPage();
+			
+	})};
 
-
-	}
-  });
+	function getRandomPage(){
+		$scope.randomPage = Math.floor((Math.random() * $scope.pages) + 1);;
+	};
+});
+	
