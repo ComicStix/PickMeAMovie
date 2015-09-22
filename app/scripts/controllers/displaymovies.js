@@ -12,17 +12,28 @@ angular.module('pickMeAmovieApp')
   	var genreId = sharedProperties.getGenreId();
   	var minRating = sharedProperties.getMinRating();
   	var maxRating = sharedProperties.getMaxRating();
-  	getTotalPages();
+  	$scope.test = {};
+ 
 
-  	function getTotalPages() {
-		movieFactory.getTotalPages(genreId,minRating,maxRating).then(function(response){
+  	$scope.$on('$viewContentLoaded', function() {
+    	getTotalPages();
+	});
+
+  	function getTotalPages(){
+		movieFactory.fetchMovies(genreId,minRating,maxRating,1000).then(function(response){
 			$scope.pages = response['total_pages'];
 			getRandomPage();
-			
 	})};
 
 	function getRandomPage(){
-		$scope.randomPage = Math.floor((Math.random() * $scope.pages) + 1);;
+		$scope.randomPage = Math.floor((Math.random() * $scope.pages) + 1);
+		fetchMovies();
+	};
+
+	function fetchMovies(){
+		movieFactory.fetchMovies(genreId,minRating,maxRating,$scope.randomPage).then(function(response){
+			$scope.movieList = response;
+		});
 	};
 });
 	
